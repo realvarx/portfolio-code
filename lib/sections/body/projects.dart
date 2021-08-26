@@ -74,9 +74,9 @@ class Projects extends StatelessWidget {
                   itemCount: projects.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: sizingInformation.deviceScreenType ==
-                              DeviceScreenType.mobile
-                          ? 1
-                          : 3),
+                              DeviceScreenType.desktop
+                          ? 3
+                          : 1),
                   itemBuilder: (context, index) {
                     return ProjectTile(
                       project: projects[index],
@@ -127,39 +127,47 @@ class ProjectTile extends StatelessWidget {
                     children: [
                       Icon(project.iconData,
                           size: sizingInformation.deviceScreenType ==
-                                  DeviceScreenType.mobile
-                              ? 14.0
-                              : 24.0),
+                                  DeviceScreenType.desktop
+                              ? 24.0
+                              : 14.0),
                       SizedBox(
                         width: 10.0,
                       ),
-                      Text(
-                        project.name!,
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.subtitle2!.copyWith(
-                            //fontWeight: FontWeight.bold,
-                            fontSize: sizingInformation.deviceScreenType ==
-                                    DeviceScreenType.mobile
-                                ? 13.0
-                                : 13.0),
+                      Flexible(
+                        child: Text(
+                          project.name!,
+                          textAlign: TextAlign.center,
+                          overflow: TextOverflow.ellipsis,
+                          style: Theme.of(context).textTheme.subtitle2!.copyWith(
+                              //fontWeight: FontWeight.bold,
+                              fontSize: sizingInformation.deviceScreenType ==
+                                      DeviceScreenType.mobile
+                                  ? 13.0
+                                  : 13.0),
+                        ),
                       ),
                       SizedBox(
                         width: 10.0,
                       ),
                       Icon(project.iconData,
                           size: sizingInformation.deviceScreenType ==
-                                  DeviceScreenType.mobile
-                              ? 14.0
-                              : 24.0),
+                                  DeviceScreenType.desktop
+                              ? 24.0
+                              : 14.0),
                     ],
                   ),
                   child: Center(
-                      child: Text(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 42.0),
+                        child: Text(
                     project.description!,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 8,
                     style: TextStyle(
-                        fontWeight: FontWeight.w200,
-                        color: textColor.withOpacity(0.55)),
-                  )),
+                          fontWeight: FontWeight.w200,
+                          color: textColor.withOpacity(0.55)),
+                  ),
+                      )),
                   footer: GridTileBar(
                     title: Text(project.state!, style: TextStyle(color: project.stateColor),),
                     trailing: TextButton(
