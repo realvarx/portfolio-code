@@ -1,8 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:personal_web/home_page.dart';
-import 'package:personal_web/values.dart';
+
+import 'home_page.dart';
+import 'values.dart';
  
 void main() => runApp(MyApp());
  

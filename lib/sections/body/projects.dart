@@ -1,14 +1,13 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:personal_web/values.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
 import '../../data.dart';
+import '../../values.dart';
 
 class Projects extends StatelessWidget {
-
   final AutoScrollController? controller;
 
   const Projects({Key? key, this.controller}) : super(key: key);
@@ -76,7 +75,10 @@ class Projects extends StatelessWidget {
                       crossAxisCount: sizingInformation.deviceScreenType ==
                               DeviceScreenType.desktop
                           ? 3
-                          : 1),
+                          : sizingInformation.deviceScreenType ==
+                                  DeviceScreenType.mobile
+                              ? 1
+                              : 2),
                   itemBuilder: (context, index) {
                     return ProjectTile(
                       project: projects[index],
@@ -138,12 +140,16 @@ class ProjectTile extends StatelessWidget {
                           project.name!,
                           textAlign: TextAlign.center,
                           overflow: TextOverflow.ellipsis,
-                          style: Theme.of(context).textTheme.subtitle2!.copyWith(
-                              //fontWeight: FontWeight.bold,
-                              fontSize: sizingInformation.deviceScreenType ==
-                                      DeviceScreenType.mobile
-                                  ? 13.0
-                                  : 13.0),
+                          style: Theme.of(context)
+                              .textTheme
+                              .subtitle2!
+                              .copyWith(
+                                  //fontWeight: FontWeight.bold,
+                                  fontSize:
+                                      sizingInformation.deviceScreenType ==
+                                              DeviceScreenType.mobile
+                                          ? 13.0
+                                          : 13.0),
                         ),
                       ),
                       SizedBox(
@@ -158,30 +164,34 @@ class ProjectTile extends StatelessWidget {
                   ),
                   child: Center(
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 42.0),
-                        child: Text(
-                    project.description!,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 8,
-                    style: TextStyle(
+                    padding: const EdgeInsets.symmetric(vertical: 42.0),
+                    child: Text(
+                      project.description!,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 8,
+                      style: TextStyle(
                           fontWeight: FontWeight.w200,
                           color: textColor.withOpacity(0.55)),
-                  ),
-                      )),
+                    ),
+                  )),
                   footer: GridTileBar(
-                    title: Text(project.state!, style: TextStyle(color: project.stateColor),),
+                    title: Text(
+                      project.state!,
+                      style: TextStyle(color: project.stateColor),
+                    ),
                     trailing: TextButton(
-                      onPressed: () {
-                        
-                      },
+                      onPressed: () {},
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text("SHOW MORE", style: TextStyle(color: backColor),),
+                        child: Text(
+                          "SHOW MORE",
+                          style: TextStyle(color: backColor),
+                        ),
                       ),
-                      style: TextButton.styleFrom(
-                        backgroundColor: primaryColor
-                      ),
-                    ),),
+                      style:
+                          TextButton.styleFrom(backgroundColor: primaryColor),
+                    ),
+                  ),
                 ),
               )),
         ),

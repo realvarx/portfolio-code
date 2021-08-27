@@ -1,7 +1,8 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:personal_web/values.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+
+import '../../values.dart';
 
 class BuildAnimatedText extends StatelessWidget {
   final Map<String, String> texts;
@@ -46,7 +47,7 @@ class BuildAnimatedText extends StatelessWidget {
                 : Theme.of(context).textTheme.bodyText2!.copyWith(
                       fontWeight: FontWeight.bold,
                       color: textColor,
-                      fontSize: 12.0
+                      fontSize: 10.0
                     ),
       ));
     });

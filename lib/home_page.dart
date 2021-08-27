@@ -2,13 +2,14 @@ import 'package:animated_background/animated_background.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import 'package:flutter/rendering.dart';
-import 'package:personal_web/sections/banner/top_banner.dart';
-import 'package:personal_web/sections/body/contact_me.dart';
-import 'package:personal_web/sections/body/projects.dart';
-import 'package:personal_web/sections/drawer/info_drawer.dart';
-import 'package:personal_web/values.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
+
+import 'sections/banner/top_banner.dart';
+import 'sections/body/contact_me.dart';
+import 'sections/body/projects.dart';
+import 'sections/drawer/info_drawer.dart';
+import 'values.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

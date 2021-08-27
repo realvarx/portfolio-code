@@ -1,9 +1,10 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:personal_web/sections/banner/animated_text.dart';
-import 'package:personal_web/values.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
+
+import '../../values.dart';
+import 'animated_text.dart';
 
 class TopBanner extends StatelessWidget {
   final AutoScrollController? controller;
@@ -17,7 +18,7 @@ class TopBanner extends StatelessWidget {
         return AspectRatio(
           aspectRatio:
               sizingInformation.deviceScreenType == DeviceScreenType.mobile
-                  ? 2.5
+                  ? 1.75
                   : 3,
           child: Stack(
             fit: StackFit.expand,

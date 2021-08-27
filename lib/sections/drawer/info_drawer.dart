@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:personal_web/sections/drawer/skills_languages.dart';
-import 'package:personal_web/sections/drawer/personal_info.dart';
+
+import 'personal_info.dart';
+import 'skills_languages.dart';
 
 class InfoDrawer extends StatelessWidget {
   const InfoDrawer({Key? key}) : super(key: key);

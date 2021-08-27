@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:personal_web/values.dart';
+
+import '../../values.dart';
 
 class PersonalInfo extends StatelessWidget {
   const PersonalInfo({Key? key}) : super(key: key);

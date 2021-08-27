@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:personal_web/sections/drawer/knowledges.dart';
-import 'package:personal_web/sections/drawer/languages.dart';
-import 'package:personal_web/sections/drawer/programming.dart';
-import 'package:personal_web/values.dart';
+
+import '../../values.dart';
+import 'knowledges.dart';
+import 'languages.dart';
+import 'programming.dart';
+
 
 class Skills extends StatelessWidget {
   const Skills({Key? key}) : super(key: key);
