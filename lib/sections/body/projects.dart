@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:personal_web/utils.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
@@ -83,6 +84,9 @@ class Projects extends StatelessWidget {
                     return ProjectTile(
                       project: projects[index],
                       sizingInformation: sizingInformation,
+                      onPressed: () {
+                        launchURL(projects[index].url!);
+                      },
                     );
                   },
                 )
@@ -96,11 +100,13 @@ class Projects extends StatelessWidget {
 }
 
 class ProjectTile extends StatelessWidget {
+
   final Project project;
   final SizingInformation sizingInformation;
+  final VoidCallback onPressed;
 
   const ProjectTile(
-      {Key? key, required this.project, required this.sizingInformation})
+      {Key? key, required this.project, required this.sizingInformation, required this.onPressed})
       : super(key: key);
 
   @override
@@ -180,7 +186,9 @@ class ProjectTile extends StatelessWidget {
                       style: TextStyle(color: project.stateColor),
                     ),
                     trailing: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+
+                      },
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
